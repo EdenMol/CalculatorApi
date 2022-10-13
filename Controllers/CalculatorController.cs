@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Server.IIS.Core;
 using System.Threading.Tasks;
 
@@ -40,7 +41,7 @@ namespace CalculatorApi.Controllers
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.17.0.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v11.0.0.0))")]
     [Microsoft.AspNetCore.Mvc.Route("eden-home/Calculator/1.0.0")]
-
+    [Authorize(Roles ="writer")]
     public partial class CalculatorController : Microsoft.AspNetCore.Mvc.ControllerBase
     {
         private IController _implementation;
