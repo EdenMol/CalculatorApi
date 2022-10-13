@@ -1,0 +1,61 @@
+---
+openapi: 3.0.0
+info:
+  title: calculator-api
+  description: The API for the Calculator project
+  version: 1.0.0
+servers:
+- url: https://virtserver.swaggerhub.com/eden-home/Calculator/1.0.0
+  description: SwaggerHub API Auto Mocking
+paths:
+  /calculator:
+    post:
+      tags:
+      - Calculate
+      description: turns the calculate value
+      operationId: setCalculated
+      parameters:
+      - name: valueA
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: number
+          format: double
+      - name: valueB
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: number
+          format: double
+      - name: op
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          enum:
+          - +
+          - "-"
+          - '*'
+          - /
+      responses:
+        "200":
+          description: Result of the operation
+          content:
+            application/yaml:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+      x-swagger-router-controller: Calculator
+components:
+  schemas:
+    ApiResponse:
+      type: object
+      properties:
+        result:
+          type: number
+          format: double
