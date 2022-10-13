@@ -39,10 +39,10 @@ paths:
         schema:
           type: string
           enum:
-          - +
+          - "+"
           - "-"
-          - '*'
-          - /
+          - "*"
+          - "/"
       responses:
         "200":
           description: Result of the operation
